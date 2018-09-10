@@ -23,12 +23,38 @@
         <version>3.4.2.Final</version>
     </parent>
 
-    <name>Keycloak Examples</name>
-    <description/>
+    <name>Parent</name>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>org.keycloak.example.demo</groupId>
     <artifactId>keycloak-examples-parent</artifactId>
     <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <version.keycloak>3.4.2.Final</version.keycloak>
+        <version.customer>0.0.1-SNAPSHOT</version.customer>
+        <version.product>2.0.1-SNAPSHOT</version.product>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-core</artifactId>
+                <version>${version.keycloak}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-common</artifactId>
+                <version>${version.keycloak}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-adapter-core</artifactId>
+                <version>${version.keycloak}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
     <build>
         <pluginManagement>
@@ -38,6 +64,20 @@
                     <artifactId>maven-deploy-plugin</artifactId>
                     <configuration>
                         <skip>true</skip>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jboss.as.plugins</groupId>
+                    <artifactId>jboss-as-maven-plugin</artifactId>
+                    <configuration>
+                        <skip>false</skip>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.wildfly.plugins</groupId>
+                    <artifactId>wildfly-maven-plugin</artifactId>
+                    <configuration>
+                        <skip>false</skip>
                     </configuration>
                 </plugin>
             </plugins>

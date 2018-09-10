@@ -16,5 +16,5 @@ services:
      - "1787:8787"
     command:  ["/opt/jboss/wildfly/bin/standalone.sh","-b", "0.0.0.0"] 
     volumes:
-      - D:/Developpement/archi/idm/ear/docker/clients/n1/configuration:/opt/jboss/wildfly/standalone/configuration:rw
-      - D:/Developpement/archi/idm/ear/docker/clients/n1/deployments:/opt/jboss/wildfly/standalone/deployments:rw
+      - /D/Developpement/archi/idm/ear/docker/clients/n1/configuration:/opt/jboss/wildfly/standalone/configuration:rw
+      - /D/Developpement/archi/idm/ear/docker/clients/n1/deployments:/opt/jboss/wildfly/standalone/deployments:rw
